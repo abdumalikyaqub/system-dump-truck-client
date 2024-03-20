@@ -18,23 +18,11 @@ const Header: React.FC = () => {
           >
             Главная
           </Button>
-          <Button color="inherit" component={Link} to="/camera">
-            Камера
-          </Button>
-          <Button color="inherit" component={Link} to="/radar-page">
-            Радар
-          </Button>
           <Button color="inherit" component={Link} to="/diagnostics">
             Диагностика
           </Button>
-          <Button color="inherit" component={Link} to="/remote-control">
-            Дистанционное управление
-          </Button>
           <Button color="inherit" component={Link} to="/statistics">
             Статистика
-          </Button>
-          <Button color="inherit" component={Link} to="/map">
-            Карта
           </Button>
           <Button color="inherit" component={Link} to="/planning">
             Автопарк
