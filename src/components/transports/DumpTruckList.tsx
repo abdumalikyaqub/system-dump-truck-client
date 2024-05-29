@@ -23,17 +23,9 @@ const DumpTruckList: React.FC = () => {
         loadDumpTrucks();
     };
 
-    // const handleExportCsv = () => {
-    //     exportToCsv(); // Функция для экспорта в CSV
-    //   };
-    
-      const handleExportJson = () => {
-        exportToJson(); // Функция для экспорта в JSON
-      };
-    
-    //   const handleImportCsv = () => {
-    //     importFromCsv(); // Функция для импорта из CSV
-    //   };
+    const handleExportJson = () => {
+        exportToJson();
+    };
     
     const handleImportJson = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -50,7 +42,6 @@ const DumpTruckList: React.FC = () => {
                 <Button sx={{ mr: 3}} variant="contained" color="secondary" onClick={handleExportJson}>Экспорт в JSON</Button>
                 <Typography sx={{ mr: 3}} variant="h6">Импорт из JSON:</Typography>
                 <input type="file" accept=".json" onChange={handleImportJson} />
-                {/* <Button sx={{ ml: 3 }} variant="contained" color="primary" onClick={handleImportJson}>Import from JSON</Button> */}
             </Stack>
             <Button sx={{ mb: 3, mt: 4 }} variant="contained" color="primary" onClick={() => navigate('/create')}>Добавить самосвал</Button>
             <TableContainer component={Paper}>
