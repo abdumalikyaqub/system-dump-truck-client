@@ -14,7 +14,7 @@ const Header: React.FC = () => {
             variant="text"
             color="inherit"
             component={Link}
-            to="/"
+            to="/home"
           >
             Главная
           </Button>

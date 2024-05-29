@@ -4,17 +4,24 @@ import StatisticsPage from './pages/StatisticsPage';
 import DiagnosticsPage from './pages/DiagnosticsPage';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
-import PlanningPage from './pages/PlanningPage';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import DumpTruckList from './components/transports/DumpTruckList';
+import DumpTruckForm from './components/transports/DumpTruckForm';
 
 const App: React.FC = () => {
   return (
     <Router>
       <MainLayout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/diagnostics" element={<DiagnosticsPage />} />
-          <Route path="/planning" element={<PlanningPage />} />
+          <Route path="/planning" element={<DumpTruckList />} />
+          <Route path="/create" element={<DumpTruckForm />} />
+          <Route path="/edit/:id" element={<DumpTruckForm />} />
         </Routes>
       </MainLayout>
     </Router>

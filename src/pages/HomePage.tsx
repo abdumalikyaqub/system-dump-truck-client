@@ -1,4 +1,6 @@
 import { Box, LinearProgress, Typography } from '@mui/material';
+import mainImage from '../../public/kamaz.jpg'; // Импорт изображения
+
 
 const HomePage = () => {
   return (
@@ -14,15 +16,14 @@ const HomePage = () => {
           // borderRadius: "5px",
         }}
       >
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           Кузбасский государственный технический университет имени Т.Ф. Горбачев
         </Typography>
         <Typography variant="h5" gutterBottom>
           Научный центр «Цифровые технологии»
         </Typography>
-        {/* <CircularProgress color="inherit" /> */}
-        <LinearProgress color="inherit" />
-        {/* <Images/> */}
+        <LinearProgress color="inherit" sx={{mb: 3}} />
+        <img src={mainImage} alt="Main" style={{ maxWidth: '60%', height: 'auto' }} />
       </Box>
     </div>
   );
