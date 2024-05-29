@@ -1,36 +1,3 @@
-// import React from 'react';
-// import { Typography, Grid } from '@mui/material';
-
-// interface TimeStatsProps {
-//   movingTime: string;
-//   stops: number;
-//   standstills: number;
-//   engineRuntime: string;
-// }
-
-// const TimeStats: React.FC<TimeStatsProps> = ({ movingTime, stops, standstills, engineRuntime }) => {
-//   return (
-//     <div>
-//       <Typography variant="h6">Time Stats</Typography>
-//       <Grid container spacing={2}>
-//         <Grid item xs={4}>
-//           <Typography>Moving Time: {movingTime}</Typography>
-//         </Grid>
-//         <Grid item xs={4}>
-//           <Typography>Stops: {stops}</Typography>
-//         </Grid>
-//         <Grid item xs={4}>
-//           <Typography>Standstills: {standstills}</Typography>
-//         </Grid>
-//         <Grid item xs={4}>
-//           <Typography>Engine Runtime: {engineRuntime}</Typography>
-//         </Grid>
-//       </Grid>
-//     </div>
-//   );
-// };
-
-// export default TimeStats;
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { faker } from '@faker-js/faker';
