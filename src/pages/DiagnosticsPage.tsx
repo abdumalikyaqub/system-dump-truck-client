@@ -4,6 +4,8 @@ import FuelSensor from '../components/dignostics/FuelSensor';
 import { Grid } from '@mui/material';
 import Speedometer from '../components/dignostics/Speedometer';
 import TirePressure from '../components/dignostics/TirePressure';
+import OdometerStats from '../components/statistics/OdometerStats';
+import TimeStats from '../components/statistics/TimeStats';
 
 const DiagnosticsPage: React.FC = () => {
   return (
@@ -33,6 +35,14 @@ const DiagnosticsPage: React.FC = () => {
             <TirePressure/>
           </div>
         </Grid>
+      </Grid>
+      <Grid rowSpacing={1} textAlign={'center'} item xs={12}  >
+          <div>
+          <h1>Статистика пробега</h1>
+          <OdometerStats/>
+          {/* <h2>Время в движении</h2> */}
+          <TimeStats/>
+          </div>
       </Grid>
     </div>
   );

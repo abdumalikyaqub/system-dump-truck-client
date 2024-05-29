@@ -29,7 +29,6 @@
 // export default OdometerStats;
 
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
 import { Box, Typography } from "@mui/material";
 import { faker } from "@faker-js/faker";
 import {

@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <AppBar position='static'>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Система мониторинга и управление
+            Система мониторинга и диагностика
           </Typography>
           <Button
             variant="text"
@@ -18,14 +18,14 @@ const Header: React.FC = () => {
           >
             Главная
           </Button>
-          <Button color="inherit" component={Link} to="/diagnostics">
-            Диагностика
-          </Button>
-          <Button color="inherit" component={Link} to="/statistics">
-            Статистика
-          </Button>
           <Button color="inherit" component={Link} to="/planning">
             Автопарк
+          </Button>
+          <Button color="inherit" component={Link} to="/diagnostics">
+            Мониторинг
+          </Button>
+          <Button color="inherit" component={Link} to="/statistics">
+          Диагностика
           </Button>
         </Toolbar>
     </AppBar>
