@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <AppBar position='static'>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Система мониторинга и диагностика
+            Система мониторинга и диагностики
           </Typography>
           <Button
             variant="text"

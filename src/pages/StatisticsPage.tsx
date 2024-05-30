@@ -1,37 +1,55 @@
-import React from 'react';
-import FuelConsumptionStats from '../components/statistics/FuelConsumptionStats';
-import { Grid } from '@mui/material';
-import OdometerStats from '../components/statistics/OdometerStats';
-import TimeStats from '../components/statistics/TimeStats';
+import React, { useEffect, useState } from 'react';
+import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { useNavigate } from 'react-router';
+import { DumpTruck, getDumpTrucks } from '../api/dumpTruckApi';
 
 const StatisticsPage: React.FC = () => {
+  const [dumpTrucks, setDumpTrucks] = useState<DumpTruck[]>([]);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+      loadDumpTrucks();
+  }, []);
+
+  const loadDumpTrucks = async () => {
+      const data = await getDumpTrucks();
+      setDumpTrucks(data);
+  };
+  
   return (
-    <div style={{ display: "flex" }}>
-      <div>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {/* <Grid item xs={6} textAlign={'center'} sx={{backgroundColor: '#f2efe6', borderRadius: '5px'}}>
-          <div>
-            <h2>Расход топлива</h2>
-            <FuelConsumptionStats/>
-          </div>
-        </Grid> */}
-        {/* <Grid textAlign={'center'} item xs={6} sx={{backgroundColor: '#f2efe6', borderRadius: '5px'}}>
-          <div>
-          <h1>Статистика пробега</h1>
-          <OdometerStats/>
-            <h2>Время в движении</h2> 
-            <TimeStats/>
-          </div>
-        </Grid> */}
-        {/* <Grid rowSpacing={1} textAlign={'center'} item xs={12}  >
-          <div>
-            <h2>Другие параметры</h2>
-          </div>
-        </Grid> */}
-      </Grid>
-      </div>
-    </div>
+    <Container>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Модель</TableCell>
+              <TableCell>Год выпуска</TableCell>
+              <TableCell>Операции</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {dumpTrucks.map((truck) => (
+              <TableRow key={truck.id}>
+                <TableCell>{truck.id}</TableCell>
+                <TableCell>{truck.model}</TableCell>
+                <TableCell>{truck.yearIssue}</TableCell>
+                <TableCell>
+                  <Button variant="contained" color="success" onClick={() => navigate('/engine-predict')}>Отказ двигателя</Button>
+                  <Button 
+                    variant="contained" 
+                    color="success" 
+                    sx = {{ml:3}}
+                    onClick={() => navigate(`/edit/${truck.id}`)}>
+                      Износ шина
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 };
 
