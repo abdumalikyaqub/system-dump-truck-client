@@ -13,7 +13,6 @@ export const getEnginePrediction = async (pointer: Pointer) => {
 };
 
 export interface Pointer {
-  id: number;
   dumpTruckId: number;
   roadTypeId: number;
   speed: number;

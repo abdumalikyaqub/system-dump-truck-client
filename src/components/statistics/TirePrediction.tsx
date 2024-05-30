@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Button, TextField, Container, Typography } from '@mui/material';
+import { Button, TextField, Container, Typography, Box } from '@mui/material';
 import { Pointer, getTirePrediction } from '../../api/predictionApi';
 
 const TirePrediction: React.FC = () => {
   const [pointer, setPointer] = useState<Pointer>({
-    id: 0,
     dumpTruckId: 0,
     roadTypeId: 0,
     speed: 0,
@@ -25,7 +24,7 @@ const TirePrediction: React.FC = () => {
     const { name, value } = e.target;
     setPointer(prevState => ({
       ...prevState,
-      [name]: Number(value)
+      [name]: value
     }));
   };
 
@@ -36,7 +35,7 @@ const TirePrediction: React.FC = () => {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>Tire Prediction</Typography>
+      <Typography variant="h5" gutterBottom>Прогнозирование износа протектора шин</Typography>
       {Object.keys(pointer).map(key => (
         <TextField
           key={key}
@@ -48,9 +47,11 @@ const TirePrediction: React.FC = () => {
           margin="normal"
         />
       ))}
-      <Button variant="contained" color="primary" onClick={handleSubmit}>Predict</Button>
+      <Button variant="contained" color="primary" onClick={handleSubmit}>Прогнозировать</Button>
       {result !== null && (
-        <Typography variant="h6" gutterBottom>Result: {result}</Typography>
+        <Box component="section" sx={{ p: 2, my: 4, border: '1px dashed grey', bgcolor: '#444745' }}>
+          <Typography variant="h6" color="white" gutterBottom>Result: {result}</Typography>
+        </Box>
       )}
     </Container>
   );

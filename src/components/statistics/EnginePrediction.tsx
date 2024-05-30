@@ -4,7 +4,6 @@ import { getEnginePrediction, Pointer } from '../../api/predictionApi';
 
 const EnginePrediction: React.FC = () => {
     const [pointer, setPointer] = useState<Pointer>({
-        id: 0,
         dumpTruckId: 0,
         roadTypeId: 0,
         speed: 0,
@@ -25,7 +24,7 @@ const EnginePrediction: React.FC = () => {
         const { name, value } = e.target;
         setPointer(prevState => ({
             ...prevState,
-            [name]: Number(value)
+            [name]: value
         }));
     };
 
@@ -36,7 +35,7 @@ const EnginePrediction: React.FC = () => {
 
     return (
         <Container>
-            <Typography variant="h4" gutterBottom>Engine Prediction</Typography>
+            <Typography variant="h5" gutterBottom>Прогнозирование вероятности отказа двигателя</Typography>
             {Object.keys(pointer).map(key => (
                 <TextField
                     key={key}
@@ -48,7 +47,7 @@ const EnginePrediction: React.FC = () => {
                     margin="normal"
                 />
             ))}
-            <Button variant="contained" color="primary" onClick={handleSubmit}>Predict</Button>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>Прогнозировать</Button>
             {result && (
                 <Box component="section" sx={{ p: 2, my:4, border: '1px dashed grey', bgcolor: '#444745' }}>
                     <Typography variant="h6" color="white" gutterBottom>
